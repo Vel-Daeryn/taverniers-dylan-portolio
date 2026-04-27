@@ -37,6 +37,8 @@
 * {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
+    scroll-margin-top: 105px;
 }
 
 body {
@@ -71,6 +73,9 @@ h2, h3 {
 h1 {
     font-size: clamp(1.5rem, 1.225rem + 1.375vw, 2.875rem);
 }
+
+/* Navigation + Hero Section */
+/* ------------------------------------------------------------------------------*/
 
 h1, header h2 {
     text-decoration: none;
@@ -204,20 +209,16 @@ img::before {
     z-index: -1;
 }
 
+/* ------------------------------------------------------------------------------*/
+
 main {
     position: relative;
 }
 
-section:first-child {
-    margin-top: 3rem;
-}
-
-section:last-child {
-    margin-bottom: 3rem;
-}
-
-#about {
-    padding: 2rem;
+/* Section */
+/* ------------------------------------------------------------------------------*/
+section {
+    padding: 4rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -228,6 +229,93 @@ section:last-child {
     padding: 1rem 0;
     text-align: left;
 }
+
+#services {
+    background-color: var(--bg-secondary);
+}
+
+#portfolio {
+    background-color: var(--bg-tertiary);
+}
+
+.services-container, .services-container fieldset    {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.services-container fieldset {
+    border: none;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+    white-space: nowrap;
+}
+
+.services-container input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.services-container label {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    border-radius: 9px;
+    background-color: var(--bg-tertiary);
+    transform: scale(.8);
+    opacity: .7;
+    transition: transform 400ms ease-in-out, opacity 400ms ease-in-out;
+}
+
+.services-container label h3 {
+    padding: 1.25rem;
+    text-align: center;
+    border-bottom: 1px solid var(--cta-bg-color);
+}
+
+.services-container ul {
+    margin: auto 0;
+    list-style-type: none;
+    padding: 1rem;
+}
+
+.services-container ul li {
+    margin-top: 1rem;
+}
+
+.services-container ul li::before {
+    content: "- ";
+    color: var(--cta-bg-color);
+}
+
+label footer {
+    background-color: var(--bg-tertiary);
+    padding: 0 1rem 1rem;
+    border-radius: 0 0 9px 9px;
+}
+
+label footer .card-highlight, .service-about span {
+    color: var(--cta-bg-color);
+    font-weight: 700;
+}
+
+label footer > .card-highlight {
+    display: flex;
+    justify-content: center;
+}
+
+/* ------------------------------------------------------------------------------*/
 
 p {
     max-width: 65ch;
@@ -258,6 +346,44 @@ p > a {
     opacity: 0.3;
 }
 
+.service-about {
+    padding: 1.5rem 0;
+}
+
+#services > ul {
+    list-style: none;
+}
+
+#services > ul li {
+    position: relative;
+}
+
+#services > ul li::before {
+    content: "— ";
+    position: absolute;
+    left: -25px;
+    color: var(--cta-bg-color);
+}
+
+.cta {
+    background-color: var(--cta-bg-color);
+    border: none;
+    margin-top: 3.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: box-shadow 400ms ease-in-out;
+}
+
+.cta a {
+    text-decoration: none;
+    color: var(--cta-text-color);
+    text-transform: uppercase;
+    font-size: clamp(1.125rem, 1.075rem + 0.25vw, 1.375rem);
+    font-weight: 600;
+    padding: 1.25rem;
+    display: block;
+}
+
 footer {
     padding: 2rem;
     background-color: var(--bg-secondary);
@@ -272,6 +398,25 @@ nav a:hover, nav a:focus-visible {
     color: var(--cta-text-color);
     background-color: var(--cta-bg-color);
     outline: none;
+}
+
+.services-container label:hover {
+    opacity: .85;
+    transform: scale(.9);
+}
+
+.services-container input[type="radio"]:focus-visible + label {
+    outline: var(--cta-bg-color) 2px solid;
+    outline-offset: 3px;
+}
+
+.services-container input[type="radio"]:checked + label {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.cta:hover {
+    box-shadow: 0 0 5px 2px var(--cta-bg-color);
 }
 
 /*
@@ -398,6 +543,18 @@ nav a:hover, nav a:focus-visible {
 
     .inactive {
         display: none;
+    }
+
+    #services {
+        padding: 4rem 10px;
+    }
+
+    .services-container, .services-container fieldset {
+        flex-direction: column;
+    }
+
+    .services-container label {
+        min-width: 340px;
     }
 }
 
