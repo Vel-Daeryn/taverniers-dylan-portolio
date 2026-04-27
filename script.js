@@ -1,3 +1,5 @@
+/* Navigation */
+
 const buttonMenu = document.querySelector("nav .burger-menu")
 const openBurgerMenu = document.getElementById("burger-menu")
 const closeBurgerMenu = document.getElementById("close-burger-menu")
@@ -27,3 +29,4 @@ buttonMenu.addEventListener("click", (e) => {
         }, 400)
     }
 })
+
