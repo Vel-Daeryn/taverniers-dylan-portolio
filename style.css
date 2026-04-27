@@ -15,17 +15,17 @@
 
 @font-face {
     font-family: "Macondo";
-    src: url("/res/fonts/Macondo-Regular.ttf");
+    src: url("./res/fonts/Macondo-Regular.ttf");
 }
 
 @font-face {
     font-family: "Commissioner";
-    src: url("/res/fonts/Commissioner-VariableFont_FLAR\,VOLM\,slnt\,wght.ttf");
+    src: url("./res/fonts/Commissioner-VariableFont_FLAR\,VOLM\,slnt\,wght.ttf");
 }
 
 @font-face {
     font-family: "Merienda";
-    src: url("/res/fonts/Merienda-VariableFont_wght.ttf");
+    src: url("./res/fonts/Merienda-VariableFont_wght.ttf");
 }
 
 /* Reset basique */
