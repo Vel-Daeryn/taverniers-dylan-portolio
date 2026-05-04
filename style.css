@@ -294,9 +294,50 @@ section {
     margin-top: 1rem;
 }
 
-.services-container ul li::before {
+.services-container ul li::before, .text-container ul li::before {
     content: "- ";
     color: var(--cta-bg-color);
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-areas: "title title"
+    "img txt"
+    "button button";
+    gap: 1rem;
+    align-items: center;
+    justify-items: center;
+    padding-bottom: 5rem;
+}
+
+.portfolio-container h3 {
+    grid-area: title;
+}
+
+.portfolio-container img {
+    grid-area: img;
+    border-radius: 18px;
+    display: block;
+    transform: scale(.9);
+    transition: transform 500ms ease-in-out;
+}
+
+.portfolio-container .text-container {
+    grid-area: txt;
+}
+
+.text-container p {
+    padding: .5rem 0;
+}
+
+.text-container ul li {
+    list-style: none;
+    padding-left: 1rem;
+    line-height: 1.5;
+}
+
+.portfolio-container .cta {
+    grid-area: button;
 }
 
 label footer {
@@ -419,6 +460,10 @@ nav a:hover, nav a:focus-visible {
     box-shadow: 0 0 5px 2px var(--cta-bg-color);
 }
 
+.portfolio-container:hover img {
+    transform: scale(1);
+}
+
 /*
 -> Animations (si Keyframes)
 */
@@ -471,6 +516,11 @@ nav a:hover, nav a:focus-visible {
 }
 
 @media (max-width: 768px) {
+
+    * {
+        scroll-margin-top: 500px;
+    }
+
     nav ul {
         display: flex;
         flex-direction: column;
@@ -555,6 +605,18 @@ nav a:hover, nav a:focus-visible {
 
     .services-container label {
         min-width: 340px;
+    }
+
+    .portfolio-container {
+    display: grid;
+    grid-template-areas: "title"
+    "img"
+    "txt"
+    "button"; 
+    }
+
+    .portfolio-container img {
+        width: 350px;
     }
 }
 
