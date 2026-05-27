@@ -340,6 +340,21 @@ section {
     grid-area: button;
 }
 
+#contact a {
+    background-color: var(--bg-tertiary);
+    margin: 1rem 0;
+    border-radius: 15px;
+    box-shadow: 0px 3px 0px black;
+}
+
+#contact img {
+    border-radius: 0;
+    box-shadow: none;
+    object-fit: contain;
+    width: 350px;
+    height: 150px;
+}
+
 label footer {
     background-color: var(--bg-tertiary);
     padding: 0 1rem 1rem;
@@ -428,6 +443,20 @@ p > a {
 footer {
     padding: 2rem;
     background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+footer div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+footer svg {
+    width: 150px;
 }
 
 
