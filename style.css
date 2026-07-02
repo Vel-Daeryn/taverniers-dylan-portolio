@@ -181,6 +181,8 @@ header .subtitle{
     display: inline-block;
     text-align: center;
     line-height: 1.5;
+    padding: 0 1rem 1.75rem;
+    margin-bottom: 1.5rem;
 }
 
 header h1, header .subtitle {
@@ -230,7 +232,7 @@ section {
     text-align: left;
 }
 
-#services {
+#skills {
     background-color: var(--bg-secondary);
 }
 
@@ -238,13 +240,12 @@ section {
     background-color: var(--bg-tertiary);
 }
 
-.services-container, .services-container fieldset    {
-    max-width: 100%;
+.skills-container, .skills-container fieldset {
     display: flex;
     justify-content: space-around;
 }
 
-.services-container fieldset {
+.skills-container fieldset {
     border: none;
 }
 
@@ -259,42 +260,44 @@ section {
     white-space: nowrap;
 }
 
-.services-container input[type="radio"] {
+.skills-container input[type="radio"] {
     position: absolute;
     opacity: 0;
     pointer-events: none;
 }
 
-.services-container label {
+.skills-container label {
+    min-width: 360px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: auto;
     border-radius: 9px;
     background-color: var(--bg-tertiary);
     transform: scale(.8);
     opacity: .7;
+    margin: 2rem 0;
     transition: transform 400ms ease-in-out, opacity 400ms ease-in-out;
 }
 
-.services-container label h3 {
-    padding: 1.25rem;
-    text-align: center;
+.skills-container label .skill-header {
     border-bottom: 1px solid var(--cta-bg-color);
+    padding: 1.25rem;
 }
 
-.services-container ul {
+.skills-container label h3 {
+    text-align: center;
+}
+
+.skills-container p {
     margin: auto 0;
     list-style-type: none;
     padding: 1rem;
-}
-
-.services-container ul li {
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-.services-container ul li::before, .text-container ul li::before {
+.skills-container p::before, .text-container p::before {
     content: "- ";
     color: var(--cta-bg-color);
 }
@@ -354,23 +357,6 @@ section {
     width: 350px;
     height: 150px;
 }
-
-label footer {
-    background-color: var(--bg-tertiary);
-    padding: 0 1rem 1rem;
-    border-radius: 0 0 9px 9px;
-}
-
-label footer .card-highlight, .service-about span {
-    color: var(--cta-bg-color);
-    font-weight: 700;
-}
-
-label footer > .card-highlight {
-    display: flex;
-    justify-content: center;
-}
-
 /* ------------------------------------------------------------------------------*/
 
 p {
@@ -402,19 +388,19 @@ p > a {
     opacity: 0.3;
 }
 
-.service-about {
+.skill-about {
     padding: 1.5rem 0;
 }
 
-#services > ul {
+#skills > ul {
     list-style: none;
 }
 
-#services > ul li {
+#skills > ul li {
     position: relative;
 }
 
-#services > ul li::before {
+#skills > ul li::before {
     content: "— ";
     position: absolute;
     left: -25px;
@@ -470,17 +456,17 @@ nav a:hover, nav a:focus-visible {
     outline: none;
 }
 
-.services-container label:hover {
+.skills-container label:hover {
     opacity: .85;
     transform: scale(.9);
 }
 
-.services-container input[type="radio"]:focus-visible + label {
+.skills-container input[type="radio"]:focus-visible + label {
     outline: var(--cta-bg-color) 2px solid;
     outline-offset: 3px;
 }
 
-.services-container input[type="radio"]:checked + label {
+.skills-container input[type="radio"]:checked + label {
     opacity: 1;
     transform: scale(1);
 }
@@ -538,6 +524,21 @@ nav a:hover, nav a:focus-visible {
 
 /* Responsive - Media Queries */
 
+@media (max-width: 1140px) {
+    .skills-container, .skills-container fieldset {
+        flex-direction: column;
+    }
+
+    .skills-container label {
+        min-width: 340px;
+        margin: .5rem;
+    }
+
+    .skills-container label:first-of-type {
+        margin-top: 2rem;
+    }
+}
+
 @media (max-width: 1024px) {
     nav ul, nav a {
         gap: 0.25rem;
@@ -572,17 +573,13 @@ nav a:hover, nav a:focus-visible {
         "image"
         "title"
         "title2";
+        padding-bottom: 3rem;
     }
 
     header img {
         width: 300px;
         height: 300px;
     }
-
-    .subtitle cite {
-        padding: 0 1rem 1.75rem;
-    }
-
 
     #primary-navigation.active {
         display: flex;
@@ -624,16 +621,8 @@ nav a:hover, nav a:focus-visible {
         display: none;
     }
 
-    #services {
+    #skills {
         padding: 4rem 10px;
-    }
-
-    .services-container, .services-container fieldset {
-        flex-direction: column;
-    }
-
-    .services-container label {
-        min-width: 340px;
     }
 
     .portfolio-container {
